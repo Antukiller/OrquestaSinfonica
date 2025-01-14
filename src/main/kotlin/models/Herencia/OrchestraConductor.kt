@@ -25,12 +25,17 @@ class OrchestraConductor(
 
     /**
      * Metodo que simula la accion de dirigir de un director de orquesta
-     *
+     * Imprime un mensaje indicando que el director dirige a los musicos
      */
 
     override fun dirigir() {
         println("El director dirige mucho a los musicos")
     }
+
+    /**
+     * Metodo que simula la funcion de un dorector de orquesta
+     * Imprime un mensaje diciendo que la funcion del director es ser el director
+     */
 
     override fun funcion() {
         println("Su funcion es ser director")
