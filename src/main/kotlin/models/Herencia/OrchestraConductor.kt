@@ -24,7 +24,7 @@ class OrchestraConductor(
     }
 
     /**
-     * Metodo que simula la accion de dirigir de un director de
+     * Metodo que simula la accion de dirigir de un director de orquesta
      *
      */
 
