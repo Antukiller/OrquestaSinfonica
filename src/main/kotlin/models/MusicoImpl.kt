@@ -2,10 +2,11 @@ package antoine.lopez.models
 
 class MusicoImpl(nombre: String, apellido: String, edad: Int, var rol: Rol) : Musico, Persona(nombre, apellido, edad){
     override fun interpretar() {
-        println("aaaa")
+        println("EL musico interpreta")
     }
 
     override fun ensayar() {
-        println("bbbbbbb")
+        println("El musico ensaya")
     }
+
 }

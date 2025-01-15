@@ -52,8 +52,4 @@ fun main() {
     if (musico4.rol is PercusionistaImpl) {
         (musico4.rol as PercusionistaImpl).tocarBombo()
     }
-
-
-
-
 }

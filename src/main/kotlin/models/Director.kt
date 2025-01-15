@@ -1,5 +1,5 @@
 package antoine.lopez.models
 
-interface Director: Rol {
+interface Director {
     fun dirigir()
 }
