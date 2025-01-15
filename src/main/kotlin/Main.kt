@@ -1,56 +1,59 @@
 package antoine.lopez
 
-import antoine.lopez.models.Composicion.*
-import antoine.lopez.models.Herencia.*
+import antoine.lopez.models.*
+
 
 fun main() {
+    val percusionista = PercusionistaImpl()
+    val violinista = ViolinistaImpl()
+    val pianista = Pianista()
+    val trompetista = TrompetistaImpl()
 
-    // Crear instancias de los diferentes músicos y el director
-    val musico: Violin = Violinista("Jorge","Morgado", 19)
-    val musico2: Piano = Pianista("Angel", "Sanchez", 19)
-    val musico3: Trompeta = Trompetista("Rin", "Itochi", 26)
-    val musico4: Bombo = Percusionista("Antu", "Lopez", 23)
-    val director: Director = OrchestraConductor("Naruto", "Uzumaki", 40)
+    val musico1 = MusicoImpl("Sergio", "Ramos", 33, percusionista)
+    val musico2 = MusicoImpl("Angel", "Gold", 23, pianista)
+    val musico3 = MusicoImpl("Martin", "Lozano", 45, violinista)
+    val musico4 = MusicoImpl("Elon", "Musk", 50, trompetista)
 
-    // El director dirige la orquesta y realiza su función
-    director.dirigir()
-    director.funcion()
+    if (musico1.rol is PercusionistaImpl) {
+        (musico1.rol as PercusionistaImpl).tocarBombo()
+    }
 
-    println()
-    // El Violinista toca el piano y realiza su función
-    musico.tocarViolin()
-    musico.funcion()
-
-    println()
-    // El pianista toca el piano y realiza su función
-    musico2.tocarPiano()
-    musico2.funcion()
-
-    println()
-    // El trompetista toca la trompeta y realiza su función
-    musico3.tocarTrompeta()
-    musico3.funcion()
-
-    println()
-    // El percusionista toca el bombo y realiza su función
-    musico4.tocarBombo()
-    musico4.funcion()
-
-    println()
-    // Verificar si el violinista también es director y, en ese caso, dirigir la orquesta
-    if (musico is Director) {
-        (musico as Director).dirigir()
+    musico1.rol = violinista
+    if (musico1.rol is ViolinistaImpl) {
+        (musico1.rol as ViolinistaImpl).tocarViolin()
     }
 
     println()
-    // Verificar si el pianista también es director y, en ese caso, dirigir la orquesta
-    if (musico2 is Director) {
-        (musico2 as Director).dirigir()
+    if (musico2.rol is Pianista) {
+        (musico2.rol as Pianista).tocarPiano()
+    }
+
+    musico2.rol = trompetista
+    if (musico2.rol is TrompetistaImpl) {
+        (musico2.rol as TrompetistaImpl).tocarTrompeta()
     }
 
     println()
-    // Verificar si el trompetista también es músico y, en ese caso, interpretar
-    if (musico3 is Musico) {
-        (musico3 as Musico).interpretar()
+    if (musico3.rol is ViolinistaImpl) {
+        (musico3.rol as ViolinistaImpl).tocarViolin()
     }
+
+    musico3.rol = pianista
+    if (musico3.rol is Pianista) {
+        (musico3.rol as Pianista).tocarPiano()
+    }
+
+    println()
+    if (musico4.rol is TrompetistaImpl) {
+        (musico4.rol as TrompetistaImpl).tocarTrompeta()
+    }
+
+    musico4.rol = percusionista
+    if (musico4.rol is PercusionistaImpl) {
+        (musico4.rol as PercusionistaImpl).tocarBombo()
+    }
+
+
+
+
 }
